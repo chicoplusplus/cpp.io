@@ -35,3 +35,11 @@ Chicoplusplus::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 end
+
+# Load factory definitions
+FactoryGirl.definition_file_paths = [
+  File.join(Rails.root, 'factories'),
+  File.join(Rails.root, 'test', 'factories'),
+  File.join(Rails.root, 'spec', 'factories')
+]
+FactoryGirl.find_definitions
