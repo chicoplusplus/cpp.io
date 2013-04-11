@@ -30,3 +30,4 @@
 //= require_tree .
 //= require imgsizer
 //= require respond
+//= require jquery.jcrop
