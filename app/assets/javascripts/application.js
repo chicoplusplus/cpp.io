@@ -27,12 +27,10 @@
 //= require foundation/foundation.section
 //= require foundation/foundation.tooltips
 //= require foundation/foundation.topbar
-//= require_tree .
 //= require imgsizer
 //= require respond
 //= require jquery.jcrop
 //= require jquery.expander
 //= require jquery.fancybox
 //= require jquery.fancybox-media
-
-$(document).foundation();
+//= require app
