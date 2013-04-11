@@ -1,0 +1,302 @@
+GIT
+  remote: git://github.com/mattolson/remotipart.git
+  revision: 8d73c088f80434cbd426889786a876d41f8bc37e
+  specs:
+    remotipart (1.0.5)
+
+GEM
+  remote: http://gemcutter.org/
+  remote: https://rubygems.org/
+  specs:
+    POpen4 (0.1.4)
+      Platform (>= 0.4.0)
+      open4
+    Platform (0.4.0)
+    actionmailer (3.2.13)
+      actionpack (= 3.2.13)
+      mail (~> 2.5.3)
+    actionpack (3.2.13)
+      activemodel (= 3.2.13)
+      activesupport (= 3.2.13)
+      builder (~> 3.0.0)
+      erubis (~> 2.7.0)
+      journey (~> 1.0.4)
+      rack (~> 1.4.5)
+      rack-cache (~> 1.2)
+      rack-test (~> 0.6.1)
+      sprockets (~> 2.2.1)
+    activeadmin (0.5.1)
+      arbre (>= 1.0.1)
+      bourbon (>= 1.0.0)
+      devise (>= 1.1.2)
+      fastercsv
+      formtastic (>= 2.0.0)
+      inherited_resources (>= 1.3.1)
+      jquery-rails (>= 1.0.0)
+      kaminari (>= 0.13.0)
+      meta_search (>= 0.9.2)
+      rails (>= 3.0.0)
+      sass (>= 3.1.0)
+    activemodel (3.2.13)
+      activesupport (= 3.2.13)
+      builder (~> 3.0.0)
+    activerecord (3.2.13)
+      activemodel (= 3.2.13)
+      activesupport (= 3.2.13)
+      arel (~> 3.0.2)
+      tzinfo (~> 0.3.29)
+    activeresource (3.2.13)
+      activemodel (= 3.2.13)
+      activesupport (= 3.2.13)
+    activesupport (3.2.13)
+      i18n (= 0.6.1)
+      multi_json (~> 1.0)
+    addressable (2.3.3)
+    ansi (1.4.3)
+    arbre (1.0.1)
+      activesupport (>= 3.0.0)
+    arel (3.0.2)
+    aws-sdk (1.3.9)
+      httparty (~> 0.7)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
+      uuidtools (~> 2.1)
+    bcrypt-ruby (3.0.1)
+    bourbon (3.1.2.1)
+      sass (>= 3.2.0)
+      thor
+    builder (3.0.4)
+    cancan (1.6.9)
+    capybara (2.1.0)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
+    capybara-webkit (0.14.2)
+      capybara (~> 2.0, >= 2.0.2)
+      json
+    carrierwave (0.8.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+    coderay (1.0.9)
+    coffee-rails (3.2.2)
+      coffee-script (>= 2.2.0)
+      railties (~> 3.2.0)
+    coffee-script (2.2.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.6.2)
+    database_cleaner (0.9.1)
+    devise (2.2.3)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (~> 3.1)
+      warden (~> 1.2.1)
+    erubis (2.7.0)
+    exception_notification (2.6.1)
+      actionmailer (>= 3.0.4)
+    excon (0.20.1)
+    execjs (1.4.0)
+      multi_json (~> 1.0)
+    factory_girl (4.2.0)
+      activesupport (>= 3.0.0)
+    fastercsv (1.5.5)
+    fog (1.10.1)
+      builder
+      excon (~> 0.20)
+      formatador (~> 0.2.0)
+      mime-types
+      multi_json (~> 1.0)
+      net-scp (~> 1.1)
+      net-ssh (>= 2.1.3)
+      nokogiri (~> 1.5.0)
+      ruby-hmac
+    forgery (0.5.0)
+    formatador (0.2.4)
+    formtastic (2.2.1)
+      actionpack (>= 3.0)
+    has_scope (0.5.1)
+    hike (1.2.2)
+    httparty (0.11.0)
+      multi_json (~> 1.0)
+      multi_xml (>= 0.5.2)
+    i18n (0.6.1)
+    inherited_resources (1.4.0)
+      has_scope (~> 0.5.0)
+      responders (~> 0.9)
+    interception (0.3)
+    journey (1.0.4)
+    jquery-rails (2.2.1)
+      railties (>= 3.0, < 5.0)
+      thor (>= 0.14, < 2.0)
+    json (1.7.7)
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+    kgio (2.8.0)
+    kicker (2.6.1)
+      listen
+    launchy (2.2.0)
+      addressable (~> 2.3)
+    listen (0.7.3)
+    mail (2.5.3)
+      i18n (>= 0.4.0)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
+    mail_form (1.4.1)
+      actionmailer (~> 3.0)
+    meta_search (1.1.3)
+      actionpack (~> 3.1)
+      activerecord (~> 3.1)
+      activesupport (~> 3.1)
+      polyamorous (~> 0.5.0)
+    method_source (0.8.1)
+    mime-types (1.22)
+    mini_magick (3.5.0)
+      subexec (~> 0.2.1)
+    minitest (4.7.1)
+    minitest-matchers (1.2.0)
+      minitest (>= 2.5.0)
+    minitest-metadata (0.3.0)
+      minitest (>= 2.12)
+    multi_json (1.7.2)
+    multi_xml (0.5.3)
+    net-scp (1.1.0)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.6.6)
+    newrelic_rpm (3.6.0.83)
+    nokogiri (1.5.9)
+    open4 (1.3.0)
+    orm_adapter (0.4.0)
+    pg (0.15.1)
+    polyamorous (0.5.0)
+      activerecord (~> 3.0)
+    polyglot (0.3.3)
+    pry (0.9.12)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.4)
+    pry-doc (0.4.5)
+      pry (>= 0.9)
+      yard (>= 0.8)
+    pry-rescue (1.1.0)
+      interception (>= 0.3)
+      pry
+    rack (1.4.5)
+    rack-cache (1.2)
+      rack (>= 0.4)
+    rack-ssl (1.3.3)
+      rack
+    rack-test (0.6.2)
+      rack (>= 1.0)
+    rails (3.2.13)
+      actionmailer (= 3.2.13)
+      actionpack (= 3.2.13)
+      activerecord (= 3.2.13)
+      activeresource (= 3.2.13)
+      activesupport (= 3.2.13)
+      bundler (~> 1.0)
+      railties (= 3.2.13)
+    railties (3.2.13)
+      actionpack (= 3.2.13)
+      activesupport (= 3.2.13)
+      rack-ssl (~> 1.3.2)
+      rake (>= 0.8.7)
+      rdoc (~> 3.4)
+      thor (>= 0.14.6, < 2.0)
+    raindrops (0.10.0)
+    rake (10.0.4)
+    rb-fsevent (0.9.3)
+    rdoc (3.12.2)
+      json (~> 1.4)
+    responders (0.9.3)
+      railties (~> 3.1)
+    role_model (0.8.1)
+    ruby-hmac (0.4.0)
+    sass (3.2.7)
+    sass-rails (3.2.6)
+      railties (~> 3.2.0)
+      sass (>= 3.1.10)
+      tilt (~> 1.3)
+    simple_form (2.1.0)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
+    slop (3.4.4)
+    spin (0.6.0)
+    sprockets (2.2.2)
+      hike (~> 1.2)
+      multi_json (~> 1.0)
+      rack (~> 1.0)
+      tilt (~> 1.1, != 1.3.0)
+    strong_parameters (0.2.0)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
+      railties (~> 3.0)
+    subexec (0.2.3)
+    thor (0.18.1)
+    tilt (1.3.7)
+    treetop (1.4.12)
+      polyglot
+      polyglot (>= 0.3.1)
+    turn (0.9.6)
+      ansi
+    tzinfo (0.3.37)
+    unicorn (4.6.2)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
+    uuidtools (2.1.3)
+    warden (1.2.1)
+      rack (>= 1.0)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
+    yard (0.8.5.2)
+    yui-compressor (0.9.6)
+      POpen4 (>= 0.1.4)
+    zurb-foundation (4.1.2)
+      sass (>= 3.2.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activeadmin (~> 0.5.1)
+  aws-sdk (~> 1.3.4)
+  cancan
+  capybara
+  capybara-webkit
+  carrierwave
+  coffee-rails (~> 3.2.1)
+  database_cleaner
+  devise
+  exception_notification (= 2.6.1)
+  factory_girl
+  fog
+  forgery
+  jquery-rails
+  kicker
+  launchy
+  mail_form
+  meta_search (>= 1.1.0.pre)
+  mini_magick
+  minitest
+  minitest-matchers
+  minitest-metadata
+  newrelic_rpm
+  pg
+  pry
+  pry-doc
+  pry-rescue
+  rails (= 3.2.13)
+  rb-fsevent
+  remotipart!
+  role_model
+  sass-rails (~> 3.2.3)
+  simple_form (~> 2.1.0)
+  spin
+  strong_parameters
+  turn
+  unicorn
+  yui-compressor
+  zurb-foundation
