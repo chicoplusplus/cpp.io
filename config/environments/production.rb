@@ -67,4 +67,7 @@ Chicoplusplus::Application.configure do
 
   # Set canonical host name
   config.canonical_host = 'chicoplusplus.herokuapp.com'
+
+  # Google analytics
+  config.google_analytics_tracking_code = 'UA-1212'
 end

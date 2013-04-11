@@ -67,5 +67,8 @@ module Chicoplusplus
 
     # Set canonical host name
     config.canonical_host = 'localhost:5000'
+
+    # Google analytics
+    config.google_analytics_tracking_code = 'UA-'
   end
 end
