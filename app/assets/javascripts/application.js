@@ -28,3 +28,4 @@
 //= require foundation/foundation.tooltips
 //= require foundation/foundation.topbar
 //= require_tree .
+//= require imgsizer
