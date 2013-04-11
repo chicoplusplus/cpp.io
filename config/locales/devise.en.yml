@@ -1,0 +1,60 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+en:
+  errors:
+    messages:
+      expired: "has expired, please request a new one"
+      not_found: "not found"
+      already_confirmed: "was already confirmed, please try signing in"
+      not_locked: "was not locked"
+      not_saved:
+        one: "1 error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"
+
+  devise:
+    failure:
+      already_authenticated: 'You are already signed in.'
+      unauthenticated: 'You need to sign in before continuing.'
+      unconfirmed: 'You need to confirm your email address before signing in. Please click on the link in your confirmation email before continuing.'
+      locked: 'Your account has been locked due to an excessive number of login failures.'
+      invalid: 'Invalid email or password.'
+      invalid_token: 'Invalid authentication token.'
+      timeout: 'Your session expired, please sign in again to continue.'
+      inactive: 'Your account must be activated by MySite staff before you can log in. They have been notified of your registration request, and you should hear from them shortly.'
+    sessions:
+      signed_in: ''
+      signed_out: 'You are now signed out.'
+    passwords:
+      send_instructions: 'In a few minutes, you will receive an email with instructions about how to reset your password.'
+      updated: 'Your password was changed successfully. You are now signed in.'
+      updated_not_active: 'Your password was changed successfully.'
+      send_paranoid_instructions: 'In a few minutes, you will receive an email with instructions about how to reset your password.'
+    confirmations:
+      send_instructions: 'In a few minutes, you will receive an email with instructions about how to confirm your account.'
+      send_paranoid_instructions: 'In a few minutes, you will receive an email with instructions about how to confirm your account.'
+      confirmed: 'Your email address has been confirmed, and your account has been activated. Thank you!'
+    registrations:
+      signed_up: 'Welcome! You have signed up successfully.'
+      signed_up_but_unconfirmed: 'We have sent you an email to confirm your email address. Please click on the link in the email to finish the registration process.'
+      signed_up_but_inactive: 'You have signed up successfully. However, we could not sign you in because your account is not yet activated.'
+      signed_up_but_locked: 'You have signed up successfully. However, we could not sign you in because your account is locked.'
+      updated: 'You updated your profile successfully.'
+      update_needs_confirmation: "You updated your profile successfully, but we need to verify your new email address. Please check your email and click on the confirm link to finalize confirming your new email address."
+      destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
+    unlocks:
+      send_instructions: 'In a few minutes, you will receive an email with instructions about how to unlock your account.'
+      unlocked: 'Your account has been unlocked. Please sign in to continue.'
+      send_paranoid_instructions: 'In a few minutes, you will receive an email with instructions about how to unlock your account.'
+    auth_callbacks:
+      user:
+        login_success: 'You successfully logged in using your %{kind} account.'
+        signup_success: 'You successfully signed up for MySite using your %{kind} account. Great to have you with us! Please take a minute to fill out your profile. This is optional, but helps other people get to know you a little better.'
+        failure: "Connecting with %{kind} failed. Perhaps you cancelled it? We promise &mdash; no funny business with your %{kind} info, this is just for convenience."
+        signup_data_failure: 'We had trouble processing the data returned by %{kind}. Please sign up using the normal registration form below. Sorry about that!'
+    mailer:
+      confirmation_instructions:
+        subject: 'Confirmation instructions'
+      reset_password_instructions:
+        subject: 'Reset password instructions'
+      unlock_instructions:
+        subject: 'Unlock Instructions'

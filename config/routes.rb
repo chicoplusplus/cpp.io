@@ -1,4 +1,6 @@
 Chicoplusplus::Application.routes.draw do
+  devise_for :users, :path => 'account', :controllers => {:registrations => 'registrations'}
+
   resources :inquiries, :only => [:new, :create]
 
   match 'privacy' => 'home#privacy'
