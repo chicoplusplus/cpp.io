@@ -1,0 +1,12 @@
+<ul>
+<% attributes.each do |attribute| -%>
+  <li><strong><%= attribute.human_name %>:</strong> <%%= @<%= singular_table_name %>.<%= attribute.name %> %></li>
+<% end -%>
+</ul>
+
+<%% if can?(:update, @<%= singular_table_name %>) %> 
+<p>
+  <%%= link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), :class => 'button small' %>
+  <span class="cancel-link">or <%%= link_to 'cancel', <%= index_helper %>_path %></span>
+</p>
+<%% end %>

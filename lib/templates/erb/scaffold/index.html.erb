@@ -1,0 +1,33 @@
+<h1><%= human_name.pluralize %> <%%= link_to('New <%= human_name %>', new_<%= singular_table_name %>_path, :class => 'button right') if can?(:create, <%= class_name %>) %></h1>
+
+<%% if @<%= plural_table_name %>.size > 0 %>
+<table>
+  <thead>
+    <tr>
+      <% attributes.each do |attribute| -%>
+        <th><%= attribute.human_name %></th>
+      <% end -%>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%%= content_tag_for(:tr, @<%= plural_table_name %>) do |<%= singular_table_name %>| %>
+      <% attributes.each do |attribute| -%>
+        <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+      <% end -%>
+      <td class="icon-button-group">
+        <%%= link_to raw('<i class="icon-eye-open"></i>'), <%= singular_table_name %>, :title => 'Show', :class => 'icon-button' %>
+        <%% if can?(:update, <%= singular_table_name %>) %> 
+          <%%= link_to raw('<i class="icon-pencil"></i>'), edit_<%= singular_table_name %>_path(<%= singular_table_name %>), :title => 'Edit', :class => 'icon-button' %>
+        <%% end %>
+        <%% if can?(:destroy, <%= singular_table_name %>) %> 
+          <%%= link_to raw('<i class="icon-remove-sign"></i>'), <%= singular_table_name %>, :title => 'Delete', :class => 'icon-button', :method => :delete, :data => { :confirm => 'Are you sure?' } %>
+        <%% end %>
+      </td>
+    <%% end %>
+  </tbody>
+</table>
+<%% else %>
+<p>No <%= human_name.pluralize.downcase %> found</p>
+<%% end %>

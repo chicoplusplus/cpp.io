@@ -1,0 +1,13 @@
+<%%= simple_form_for(@<%= singular_table_name %>) do |f| %>
+  <%%= f.error_notification %>
+
+  <div class="form-inputs">
+  <%- attributes.each do |attribute| -%>
+    <%%= f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %> %>
+  <%- end -%>
+  </div>
+
+  <div class="actions">
+    <%%= f.submit 'Save Changes', :class => 'button' %> <span class="cancel-link">or <%%= link_to 'cancel', @<%= singular_table_name %>.persisted? ? @<%= singular_table_name %> : <%= index_helper %>_path %></span>
+  </div>
+<%% end %>
