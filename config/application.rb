@@ -70,5 +70,8 @@ module Chicoplusplus
 
     # Google analytics
     config.google_analytics_tracking_code = 'UA-'
+
+    # Use UTC for timestamps
+    config.active_record.default_timezone = :utc
   end
 end

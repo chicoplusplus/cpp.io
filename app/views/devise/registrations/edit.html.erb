@@ -1,0 +1,144 @@
+<% content_for :onready do %>
+  $('#change_picture').on('change', 'input[type=file]', function() {
+    // Clear out crop values so we get the full version of the new image
+    $('#user_avatar_crop_x').val('');
+    $('#user_avatar_crop_y').val('');
+    $('#user_avatar_crop_w').val('');
+    $('#user_avatar_crop_h').val('');
+
+    // Submit the form
+    $("#edit_user").submit();
+  });
+
+  $('#remove_photo_button').on('click', function(e) {
+    if (confirm('Are you sure you want to remove this photo?')) {
+      $('#user_remove_avatar').val('1'); 
+      $("#edit_user").submit();
+    }
+    e.preventDefault();
+  });
+
+  $('#crop_photo_button').on('click', function(e) {
+    // Toggle upload/crop interfaces
+    $('.upload-picture-wrapper').hide();
+    $('.crop-picture-wrapper').show();
+
+    // Provide crop defaults
+    var x = parseInt($('#user_avatar_crop_x').val()) || 0;
+    var y = parseInt($('#user_avatar_crop_y').val()) || 0;
+    var w = parseInt($('#user_avatar_crop_w').val()) || 150;
+    var h = parseInt($('#user_avatar_crop_h').val()) || 150;
+
+    // Setup jcrop and save api handle for later
+    $('#master_image').Jcrop({
+      setSelect: [x, y, x+w, y+h],
+      minSize: [150, 150],
+      aspectRatio: 1,
+      onChange: function(coords) {
+        $('#user_avatar_crop_x').val(coords.x);
+        $('#user_avatar_crop_y').val(coords.y);
+        $('#user_avatar_crop_w').val(coords.w);
+        $('#user_avatar_crop_h').val(coords.h);
+      }
+    }, function() {
+      // Hook into global APP object if it exists to store
+      // jcrop API for later use.
+      window.APP = window.APP || {};
+      window.APP.jcrop_api = this;
+    });
+
+    e.preventDefault();
+  });
+
+  $('#crop_button').on('click', function(e) {
+    $("#edit_user").submit();
+    e.preventDefault();
+  });
+
+  $('#cancel_link').on('click', function(e) {
+    $('.crop-picture-wrapper').hide();
+    $('.upload-picture-wrapper').show();
+    window.APP.jcrop_api.destroy();
+    e.preventDefault();
+  });
+<% end %>
+
+<% content_for :styles do %>
+  #change_picture { margin-top: 1em; }
+  div.jcrop-holder { margin-bottom: 1em; }
+<% end %>
+
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :remote => true, :html => { :method => :put, :multipart => true }) do |f| %>
+  <div class="section-container tabs" data-section>
+    <section class="section" id="accountTab">
+      <p class="title"><a href="#account">My Account</a></a>
+      <div class="content">
+        <div class="row">
+          <fieldset>
+            <div class="small-4 columns">
+              <h4>Account Information</h4>
+              <p class="subhead">This information is required, and kept private unless specified otherwise under the Public Profile tab.</p>
+            </div>
+            <div class="small-8 columns">
+              <%= f.input :first_name, :required => true %>
+              <%= f.input :last_name, :required => true %>
+              <%= f.input :email, :label => 'Email Address' %>
+            </div>
+          </fieldset>
+        </div>
+        <div class="row">
+          <fieldset>
+            <div class="small-4 columns">
+              <h4>Change Password</h4>
+              <p class="subhead">You can leave this section blank if you're not changing your password.</p>
+            </div>
+            <div class="small-8 columns">
+              <%= f.input :current_password, :label => 'Current password' %>
+              <%= f.input :password, :label => 'New password' %>
+              <%= f.input :password_confirmation, :label => 'Re-type new password to confirm' %>
+
+              <div class="actions">
+                <%= f.button :submit, :value => 'Save Changes' %>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="profileTab">
+      <p class="title"><a href="#profile">Public Profile</a></a>
+      <div class="content">
+        <div class="row">
+          <div class="small-4 columns">
+            <h4>Profile Picture</h4>
+            <p class="subhead">Upload a picture to brighten up your profile!</p>
+          </div>
+          <div class="small-8 columns upload-picture-wrapper">
+            <%= link_to image_tag(resource.avatar.url(:medium)), (resource.avatar? ? resource.avatar.url(:large) : image_path('avatars/missing_medium.png')), :class => 'th' %>
+            <ul id="change_picture" class="inline-list">
+              <li class="file-input-wrapper">
+                <a href="#" class="button radius small">Upload New Photo...</a>
+                <%= f.input :avatar, :as => :file, :label => false %>
+                <%= f.input :avatar_cache, :as => :hidden %>
+                <%= f.input :remove_avatar, :as => :hidden, :value => 0 %>
+              </li>
+              <li class="requires-file"<%= resource.avatar? ? '' : ' style="display:none"'.html_safe %>>
+                <a href="#" class="button radius small" id="crop_photo_button">Set Thumbnail</a>
+              </li>
+              <li class="requires-file"<%= resource.avatar? ? '' : ' style="display:none"'.html_safe %>>
+                <a href="#" class="button radius alert small" id="remove_photo_button">Remove</a>
+              </li>
+            </ul>
+          </div>
+          <div class="small-8 columns crop-picture-wrapper" style="display:none">
+            <% %w[x y w h].each do |attr| %>
+              <%= f.input "avatar_crop_#{attr}", :as => :hidden %>
+            <% end %>
+            <%= image_tag (resource.avatar? ? resource.avatar.url(:large) : image_path('avatars/missing_medium.png')), :id => 'master_image' %>
+            <p><a href="#" class="button" id="crop_button">Crop</a> <span class="cancel-link">or <a href="#" id="cancel_link">cancel</a></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+<% end %>

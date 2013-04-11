@@ -13,6 +13,7 @@
 
 // This is the default html and body font-size for the base em value.
 // $em-base: 16px;
+$em-base: 14px;
 
 // We use these to control various global styles
 // $body-bg: #fff;
@@ -30,8 +31,11 @@
 // We use these as default colors throughout
 // $primary-color: #2ba6cb;
 // $secondary-color: #e9e9e9;
+$secondary-color: #fff;
 // $alert-color: #c60f13;
+$alert-color: #b72f33;
 // $success-color: #5da423;
+$success-color: #00b25c;
 
 // We use these to make sure border radius matches unless we want it different.
 // $global-radius: 3px;

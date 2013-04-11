@@ -1,0 +1,131 @@
+window.APP = {
+  jcrop_api: null,
+
+  // The counterpart to standard_flashes in application_helper
+  addFlash: function(msg, type) {
+    var icons = {
+      'success': 'ok',
+      'alert': 'warning-sign',
+      'secondary': 'info-sign'
+    };
+
+    var flash = "";
+    flash += '<div class="alert-box ' + type + '" style="display:none">'
+    flash += '<h1><i class="icon-' + icons[type] + '"></i></h1>'
+    flash += '<p>' + msg + '</p>'
+    flash += '<a href="#" class="close"><i class="icon-remove"></i></a>'
+    flash += '<div class="clear"></div>'
+    flash += '</div>'
+
+    // Insert container if necessary
+    if ($('#flashes > div.columns').size() == 0) {
+      var flash_container = '<div class="small-12 large-6 columns large-centered"></div>';
+      $('#flashes').html();
+      $('#flashes').append(flash_container);
+    }
+
+    // Insert flash into container
+    $('#flashes > div.columns').append(flash);
+  },
+
+  showFlashes: function() {
+    if ( $('#flashes div.alert-box').length > 0 ) {
+      $('#flashes').show();
+    }
+
+    $('#flashes div.alert-box').each(function() {
+      if( $(this).html() != '' ) {
+        $(this).fadeIn('fast');
+      }
+    });
+  }
+};
+
+$(document).ready(function () {
+  // Popup links
+  $('a.popup').on('click', function(e) {
+    var params = $(this).data('window-params') || '', 
+        window_name = $(this).data('window-name') || '_blank';
+        
+    window.open($(this)[0].href, window_name, params);
+    e.preventDefault();
+  });
+
+  // Show flashes if present
+  window.APP.showFlashes();
+
+  // Handle closing flashes
+  $('a.close').on('click', function(e) {
+    // Close this flash
+    $(this).parent('div').fadeOut('fast', function() {
+      // Remove from DOM
+      $(this).remove();
+
+      // Check if any others are visible
+      if ($('#flashes div.alert-box:visible').length == 0) {
+        $("#flashes").hide();
+      }
+    });
+  });
+
+  // Setup global ajax hooks
+  $(document).ajaxStart(function() {
+    // Hide checkmark and show spinner
+    var $spinner = $('#ajax_spinner');
+    $('img', $spinner).show();
+    $('i', $spinner).hide();
+    $spinner.show();
+  });
+  
+  $(document).ajaxError(function(e, jqxhr, settings, exception) {
+    // We sometimes end up in ajaxError for forms that have
+    // multipart data, because remotipart cancels the normal 
+    // ajax submission and sends the image via an iframe, 
+    // so check the status code to see if this is a server 
+    // error, in which case we expect a json payload containing
+    // the error message.
+    if (jqxhr.status == 500) {
+      // Scroll to top of page so user sees feedback
+      $("html, body").animate({ scrollTop: 0 }, "fast");
+
+      // Hide spinner
+      var $spinner = $('#ajax_spinner');
+      $('img', $spinner).hide();
+
+      // Show flash message
+      var response = $.parseJSON(jqxhr.responseText);
+      if (response != null && response['error_msg'] != null) {
+        window.APP.addFlash(response['error_msg'], 'alert');
+        window.APP.showFlashes();
+      }
+    }
+  });
+  
+  $(document).ajaxStop(function(e, jqxhr, settings, exception) {
+    // Scroll to top of page so user sees feedback
+    $("html, body").animate({ scrollTop: 0 }, "fast");
+
+    // Hide spinner and show checkmark for a little bit, then fade it away
+    var $spinner = $('#ajax_spinner');
+    $('img', $spinner).hide();
+
+    // If successful (no mention of 'flashes'), show checkmark
+    $('i', $spinner).fadeIn('fast', function() {
+      var $checkmark = $(this);
+      setTimeout(function() {
+        $checkmark.fadeOut('fast', function() {
+          $spinner.hide();
+        });
+      }, 1200);
+    });
+  });
+
+  // Init imgSizer script
+  imgSizer.collate();
+
+  // Add fancybox hook
+  $("a.th, .fancybox").fancybox();
+
+  // Init foundation js
+  $(document).foundation();
+});

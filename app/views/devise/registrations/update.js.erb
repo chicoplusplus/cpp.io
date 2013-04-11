@@ -1,0 +1,19 @@
+<%= render :partial => '/shared/handle_errors', :locals => {:form_template => '/devise/registrations/edit', :obj => resource} %>
+
+<% if resource.avatar? %>
+  $('.upload-picture-wrapper li.requires-file').show();
+<% else %>
+  $('.upload-picture-wrapper li.requires-file').hide();
+<% end %>
+
+<% resource_avatar = resource.avatar? ? "#{resource.avatar.url(:large)}" : image_path('avatars/missing_medium.png') %>
+
+$('.crop-picture-wrapper').hide();
+$('.upload-picture-wrapper').show();
+$('.upload-picture-wrapper a.th img').attr('src', '<%= resource.avatar.url(:medium) %>');
+$('.upload-picture-wrapper a.th').attr('href', '<%= resource_avatar %>');
+$('#master_image').attr('src', '<%= resource_avatar %>');
+$('#master_image').removeAttr('style');
+window.APP.jcrop_api.destroy();
+$('#user_remove_avatar').val('0');
+

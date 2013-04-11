@@ -1,0 +1,11 @@
+<p>Hi <%= @resource.first_name %>,</p>
+<p>
+  For your protection, we have locked your account due to an excessive number of unsuccessful sign in attempts. 
+  To unlock your account, click this link:
+</p>
+<p><%= link_to 'Unlock my account', unlock_url(@resource, :unlock_token => @resource.unlock_token) %></p>
+<p>If the link is not clickable, please copy and paste the URL into your browser.</p>
+<p>
+  Thanks,<br/>
+  The MySite Team
+</p>

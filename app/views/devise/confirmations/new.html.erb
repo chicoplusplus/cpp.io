@@ -1,0 +1,20 @@
+<% content_for :onready do %>
+  $("#user_email").focus();
+<% end %>
+
+<div class="row">
+  <div class="small-12 large-8 columns">
+    <h2>Resend Confirmation Email</h2>
+    <h5 class="subheader">
+      When you signed up, you should have received an email containing account confirmation instructions. If you did not receive it,
+      use this form to have it sent to you again.
+    </h5>
+    <%= simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+      <%= f.input :email, :label => 'Email Address', :placeholder => "The email address you used to sign up", :required => true %>
+      
+      <div class="actions">
+        <%= f.button :submit, :value => 'Resend Confirmation Email' %> <span class="cancel-link">or <%= link_to 'cancel', new_user_session_path %></span>
+      </div>
+    <% end %>
+  </div>
+</div>

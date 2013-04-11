@@ -1,0 +1,21 @@
+<% content_for :onready do %>
+  $("#user_password").focus();
+<% end %>
+
+<div class="row">
+  <div class="small-12 large-8 columns">
+    <h2>Change Your Password</h2>
+    <h5 class="subheader">
+      Use the form below to change your password to something you'll remember.
+    </h5>
+    <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+      <%= f.input :reset_password_token, :as => :hidden %>
+      <%= f.input :password, :label => "New password" %>
+      <%= f.input :password_confirmation, :label => "Re-type it to confirm", :required => true %>
+      
+      <div class="actions">
+        <%= f.button :submit, :value => 'Change Password' %>
+      </div>
+    <% end %>
+  </div>
+</div>

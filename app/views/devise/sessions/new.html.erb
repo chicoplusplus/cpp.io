@@ -1,0 +1,35 @@
+<% content_for :onready do %>
+  $("#user_email").focus();
+<% end %>
+
+<div class="row">
+  <div class="small-12 large-8 columns">
+    <h2>Sign In</h2>
+    <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :method => :post }) do |f| %>
+      <%= f.input :email, :label => 'Email Address', :required => true %>
+      <%= f.input :password, :required => true %>
+      <% if devise_mapping.rememberable? -%>
+        <%= f.input :remember_me, :as => :boolean, :label => 'Remember me on this computer.' %>
+      <% end -%>
+      
+      <div class="actions">
+        <%= f.button :submit, :value => 'Sign In' %>
+      </div>
+    <% end %>
+  </div>
+  <div class="small-12 large-3 columns offset-by-1">
+    <h5 class="subheader">Having trouble signing in?</h5>
+    <ul class="plain">
+      <%- if devise_mapping.recoverable? %>
+        <li><%= link_to "I forgot my password.", new_password_path(resource_name) %></li>
+      <% end -%>
+      <%- if devise_mapping.confirmable? %>
+        <li><%= link_to "I didn't receive my email confirmation.", new_confirmation_path(resource_name) %></li>
+      <% end -%>
+      <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) %>
+        <li><%= link_to "My account is locked and I didn't receive my unlock instructions.", new_unlock_path(resource_name) %></li>
+      <% end -%>
+      <li><%= link_to "I don't have an account yet.", new_user_registration_path %></li>
+    </ul>
+  </div>
+</div>

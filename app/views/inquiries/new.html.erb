@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="small-12 large-8 columns large-centered">
+    <h2>Contact Us</h2>
+    <p>
+      We'd love to hear your comments, suggestions, bug reports, or praise! Thanks for taking the time to help
+      us improve the app!
+    </p>
+    <%= simple_form_for(@inquiry, :url => inquiries_path) do |f| %>
+      <%= f.input :name, :label => 'Your name', :required => true %>
+      <%= f.input :email, :label => 'Your email address', :required => true %>
+      <%= f.input :subject, :required => true %>
+      <%= f.input :body, :label => 'Message', :as => :text, :input_html => {:rows => 6} %>
+
+      <div class="form-actions">
+        <%= f.submit 'Send Message', :class => 'button' %>
+      </div>
+    <% end %>
+  </div>
+</div>
