@@ -73,5 +73,11 @@ module Chicoplusplus
 
     # Use UTC for timestamps
     config.active_record.default_timezone = :utc
+
+    # App email addresses
+    config.technical_sender_email = "'chicoplusplus app' <donotreply@chicoplusplus.org>"
+    config.technical_recipient_email = "molson@rubycloud.com"
+    config.nontechnical_sender_email = "'chicoplusplus app' <donotreply@chicoplusplus.org>"
+    config.nontechnical_recipient_email = "molson@rubycloud.com"
   end
 end
