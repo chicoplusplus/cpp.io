@@ -1,0 +1,40 @@
+#!/bin/bash
+#
+# Use this to create and initialize a fresh heroku application
+# 
+set -e
+
+# Go to rails root
+SCRIPT_DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd $SCRIPT_DIR/..
+
+# Source environment variables
+source config/env-production.bash
+
+echo "Precompiling assets"
+script/precompile
+
+echo "Logging in to Heroku"
+heroku login
+
+echo "Creating fresh heroku application"
+heroku create
+
+echo "Renaming application for convenience"
+heroku apps:rename $HEROKU_APP_NAME
+
+echo "Pushing application for the first time"
+git push heroku master
+
+echo "Migrating remote database"
+heroku run rake db:migrate
+
+echo "Setting up Heroku environment"
+cat config/env-production.bash | awk '{if($1 == "export") print $2}' | xargs heroku config:set
+
+echo "Adding useful free addons"
+heroku addons:add sendgrid:starter
+heroku addons:add newrelic:standard
+heroku addons:add pgbackups:auto-month
+heroku addons:add papertrail:choklad
+

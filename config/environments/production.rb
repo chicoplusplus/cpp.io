@@ -70,4 +70,7 @@ Chicoplusplus::Application.configure do
 
   # Google analytics
   config.google_analytics_tracking_code = 'UA-1212'
+
+  # Don't fully initialize app on precompilation (Heroku needs this)
+  config.assets.initialize_on_precompile = false
 end

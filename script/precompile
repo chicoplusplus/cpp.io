@@ -1,0 +1,24 @@
+#!/bin/bash
+#
+# Use this to precompile assets just prior to deployment
+#
+
+# Go to rails root
+SCRIPT_DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd $SCRIPT_DIR/..
+
+echo "Removing current public/assets..."
+git rm -r public/assets
+
+echo "Precompiling assets..."
+RAILS_ENV=production bundle exec rake assets:precompile
+if [[ $? == 0 ]]; then
+  git add public/assets
+  git commit -m "Precompile assets prior to deploy"
+  git push origin master
+else
+  rm -rf public/assets
+  git reset HEAD public/assets
+  git checkout -- public/assets
+fi
+
