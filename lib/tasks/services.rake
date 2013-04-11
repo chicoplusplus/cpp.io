@@ -1,5 +1,6 @@
 module ServiceHelper
   SERVICE_SPECS = {
+  :postgres => {:pidfile=>"/usr/local/var/postgres/postmaster.pid", :start=>"pg_ctl -D /usr/local/var/postgres start", :stop=>"pg_ctl -D /usr/local/var/postgres stop -m fast"},
   }
 
   def service_status(service_name, quiet=false)
