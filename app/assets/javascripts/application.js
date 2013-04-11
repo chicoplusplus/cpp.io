@@ -34,3 +34,5 @@
 //= require jquery.expander
 //= require jquery.fancybox
 //= require jquery.fancybox-media
+
+$(document).foundation();
