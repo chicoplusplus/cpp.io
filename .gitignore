@@ -18,3 +18,7 @@ vendor/bundle/ruby
 config/database.yml
 public/system
 config/env-production.bash
+
+config/env-development.bash
+
+config/env-test.bash
