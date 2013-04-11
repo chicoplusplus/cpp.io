@@ -32,3 +32,5 @@
 //= require respond
 //= require jquery.jcrop
 //= require jquery.expander
+//= require jquery.fancybox
+//= require jquery.fancybox-media
