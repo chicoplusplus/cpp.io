@@ -79,5 +79,9 @@ module Chicoplusplus
     config.technical_recipient_email = "molson@rubycloud.com"
     config.nontechnical_sender_email = "'chicoplusplus app' <donotreply@chicoplusplus.org>"
     config.nontechnical_recipient_email = "molson@rubycloud.com"
+
+    # Use YUI compressor
+    config.assets.css_compressor = :yui
+    config.assets.js_compressor = :yui
   end
 end
