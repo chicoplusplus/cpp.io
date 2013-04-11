@@ -64,5 +64,8 @@ module Chicoplusplus
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Set canonical host name
+    config.canonical_host = 'localhost:5000'
   end
 end
