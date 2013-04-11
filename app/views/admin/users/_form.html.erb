@@ -1,0 +1,12 @@
+<%= semantic_form_for [:admin, @user] do |f| %>
+  <%= f.inputs "User Details" do %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :email %>
+    
+    <% for role in User.valid_roles %>
+      <%= f.input :role_symbols, :as => :boolean, :input_html => {:id => "user_roles_#{User.mask_for(role)}", :name => "user[roles][]", :checked => @user.is?(role), :value => role}, :label => role.to_s.humanize %>
+    <% end %>
+  <% end %>
+  <%= f.actions %>
+<% end %>

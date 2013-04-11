@@ -76,4 +76,8 @@ Chicoplusplus::Application.configure do
 
   # Don't fully initialize app on precompilation (Heroku needs this)
   config.assets.initialize_on_precompile = false
+
+  # Add optional components to asset precompilation, this includes controller level css and js, anything that is not included in the main application.css and application.js
+  config.assets.precompile += []
+    config.assets.precompile += ["active_admin.css", "active_admin/print.css", "active_admin.js"]
 end
