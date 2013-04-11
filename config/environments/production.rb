@@ -80,4 +80,11 @@ Chicoplusplus::Application.configure do
   # Add optional components to asset precompilation, this includes controller level css and js, anything that is not included in the main application.css and application.js
   config.assets.precompile += []
     config.assets.precompile += ["active_admin.css", "active_admin/print.css", "active_admin.js"]
+
+  # Enable and configure exception notifier gem
+  config.middleware.use ExceptionNotifier,
+    :email_prefix => "[chicoplusplus] ",
+    :sender_address => config.technical_sender_email,
+    :exception_recipients => [config.technical_recipient_email]
+
 end
