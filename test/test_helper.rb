@@ -50,3 +50,6 @@ class MiniTest::Spec
     DatabaseCleaner.clean
   end
 end
+
+# Make test output a little easier on the eyes
+Turn.config.format = :outline
