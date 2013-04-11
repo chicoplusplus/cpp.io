@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.remotipart
 //= require foundation/foundation
 //= require foundation/foundation.alerts
 //= require foundation/foundation.clearing
