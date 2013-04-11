@@ -1,5 +1,6 @@
 module ServiceHelper
   SERVICE_SPECS = {
+  :unicorn => {:pidfile=>"./tmp/pids/unicorn.pid", :start=>"bundle exec unicorn_rails --listen 5000 --daemonize ./config.ru", :stop=>"kill $(cat ./tmp/pids/unicorn.pid)"},
   :postgres => {:pidfile=>"/usr/local/var/postgres/postmaster.pid", :start=>"pg_ctl -D /usr/local/var/postgres start", :stop=>"pg_ctl -D /usr/local/var/postgres stop -m fast"},
   }
 
