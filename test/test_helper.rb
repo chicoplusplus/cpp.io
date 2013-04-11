@@ -1,6 +1,7 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path("../../config/environment", __FILE__)
 require 'minitest/autorun'
+require 'pry-rescue/minitest'
 require 'minitest/matchers'
 require 'minitest/metadata'
 require 'active_support/testing/setup_and_teardown'
