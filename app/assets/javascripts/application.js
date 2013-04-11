@@ -31,3 +31,4 @@
 //= require imgsizer
 //= require respond
 //= require jquery.jcrop
+//= require jquery.expander
