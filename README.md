@@ -1,6 +1,10 @@
-# Chicoplusplus
+# cpp.io
 
-## Thanks
+This is the source for the [cpp.io](http://cpp.io) website, the home of Chico++, a social learning collaborative in Chico, CA.
+We get together every Wednesday at [Idea Fab Labs](http://ideafablabs.com/) to discuss topics of interest and learn by building
+together.
+
+### Thanks
 
 The original scaffold for this application was created by [App Scrolls](https://github.com/mattolson/appscrolls).
 
