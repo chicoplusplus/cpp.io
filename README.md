@@ -6,9 +6,8 @@ together.
 
 ### Thanks
 
-The original scaffold for this application was created by [App Scrolls](https://github.com/mattolson/appscrolls).
-
-The project was created with the following scrolls:
+The original scaffold for this application was created by [App Scrolls](https://github.com/mattolson/appscrolls). The project was 
+created with the following scrolls:
 
 * activerecord
 * minitest

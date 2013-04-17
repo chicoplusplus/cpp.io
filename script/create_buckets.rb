@@ -9,7 +9,7 @@ s3 = AWS::S3.new({
 })
 
 ['production', 'test', 'development'].each do |e|
-  bucket_name = "chicoplusplus-chicoplusplus-#{e}"
+  bucket_name = "cppio-website-#{e}"
   puts "Creating S3 bucket '#{bucket_name}'..."
   s3.buckets.create(bucket_name) unless s3.buckets[bucket_name].exists?
 end
