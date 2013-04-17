@@ -75,10 +75,10 @@ module Chicoplusplus
     config.active_record.default_timezone = :utc
 
     # App email addresses
-    config.technical_sender_email = "'chicoplusplus app' <donotreply@chicoplusplus.org>"
-    config.technical_recipient_email = "molson@rubycloud.com"
-    config.nontechnical_sender_email = "'chicoplusplus app' <donotreply@chicoplusplus.org>"
-    config.nontechnical_recipient_email = "molson@rubycloud.com"
+    config.technical_sender_email = "'cpp.io' <app@cpp.io>"
+    config.technical_recipient_email = "eng@cpp.io"
+    config.nontechnical_sender_email = "'cpp.io' <app@cpp.io>"
+    config.nontechnical_recipient_email = "eng@cpp.io"
 
     # Use YUI compressor
     config.assets.css_compressor = :yui

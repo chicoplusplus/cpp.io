@@ -69,7 +69,7 @@ Chicoplusplus::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # Set canonical host name
-  config.canonical_host = 'chicoplusplus.herokuapp.com'
+  config.canonical_host = 'www.cpp.io'
 
   # Google analytics
   config.google_analytics_tracking_code = 'UA-1212'
@@ -83,7 +83,7 @@ Chicoplusplus::Application.configure do
 
   # Enable and configure exception notifier gem
   config.middleware.use ExceptionNotifier,
-    :email_prefix => "[chicoplusplus] ",
+    :email_prefix => "[cpp.io] ",
     :sender_address => config.technical_sender_email,
     :exception_recipients => [config.technical_recipient_email]
 
