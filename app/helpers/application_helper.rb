@@ -57,15 +57,16 @@ module ApplicationHelper
     rounded = value - mod + (mod >= round_to/2.0 ? round_to : 0)
     rounded % 1 == 0 ? rounded.to_i : rounded
   end
-  
-  def safe_textilize(s)
-    doc = ''
-    if s && s.is_a?(String)
-      doc = RedCloth.new(s)
-      doc.filter_html = true
-      doc.filter_styles = true
-      doc = doc.to_html
-    end
-    sanitize(doc)
+
+  def markdown(text)
+    renderer = Redcarpet::Render::HTML.new(:hard_wrap => true, :filter_html => true)
+    options = {
+      autolink: true,
+      no_intra_emphasis: true,
+      lax_spacing: true,
+      strikethrough: true,
+      superscript: true
+    }
+    Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end
 end

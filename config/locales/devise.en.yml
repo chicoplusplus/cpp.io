@@ -20,7 +20,7 @@ en:
       invalid: 'Invalid email or password.'
       invalid_token: 'Invalid authentication token.'
       timeout: 'Your session expired, please sign in again to continue.'
-      inactive: 'Your account must be activated by MySite staff before you can log in. They have been notified of your registration request, and you should hear from them shortly.'
+      inactive: 'Your account must be activated by Chico++ staff before you can log in. They have been notified of your registration request, and you should hear from them shortly.'
     sessions:
       signed_in: ''
       signed_out: 'You are now signed out.'
@@ -48,7 +48,7 @@ en:
     auth_callbacks:
       user:
         login_success: 'You successfully logged in using your %{kind} account.'
-        signup_success: 'You successfully signed up for MySite using your %{kind} account. Great to have you with us! Please take a minute to fill out your profile. This is optional, but helps other people get to know you a little better.'
+        signup_success: 'You successfully signed up for Chico++ using your %{kind} account. Great to have you with us! Please take a minute to fill out your profile. This is optional, but helps other people get to know you a little better.'
         failure: "Connecting with %{kind} failed. Perhaps you cancelled it? We promise &mdash; no funny business with your %{kind} info, this is just for convenience."
         signup_data_failure: 'We had trouble processing the data returned by %{kind}. Please sign up using the normal registration form below. Sorry about that!'
     mailer:

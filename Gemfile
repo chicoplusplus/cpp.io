@@ -2,14 +2,13 @@ source "http://gemcutter.org"
 source 'https://rubygems.org'
 ruby '1.9.3'
 gem 'rails', '3.2.13'
-group :production do
-  gem 'newrelic_rpm'
-end
+
 group :development, :test do
   gem 'pry-rescue'
   gem 'pry-doc'
   gem 'pry'
 end
+
 group :test do
   gem 'forgery'
   gem 'rb-fsevent', :require => false
@@ -25,7 +24,7 @@ group :test do
   gem 'minitest-matchers'
   gem 'minitest'
 end
-gem 'pg'
+
 group :assets do
   gem 'jquery-rails'
   gem 'zurb-foundation'
@@ -33,6 +32,8 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'yui-compressor'
 end
+
+gem 'pg'
 gem "unicorn"
 gem "aws-sdk", "~> 1.3.4"
 gem "simple_form", "~> 2.1.0"
@@ -48,3 +49,4 @@ gem "fog"
 gem "remotipart", :github => "mattolson/remotipart"
 gem "mail_form"
 gem "mini_magick"
+gem 'redcarpet'

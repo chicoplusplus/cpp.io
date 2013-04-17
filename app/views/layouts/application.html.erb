@@ -19,7 +19,7 @@
     <meta http-equiv="cleartype" content="on">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <title>MySite<%= content_for?(:title) ? " &mdash; " + yield(:title) : "" %></title>
+    <title>Chico++<%= content_for?(:title) ? " &mdash; " + yield(:title) : "" %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag "application", :media => "all" %>
@@ -41,7 +41,7 @@
     <!-- Logo & Top Nav -->
     <div class="row">
       <div class="small-6 large-3 columns">
-        <h1><%= link_to image_tag('http://placehold.it/250x75&text=MySite'), root_path %></h1>
+        <h1><%= link_to image_tag('http://placehold.it/250x75&text=Chico++'), root_path %></h1>
       </div>
       <div class="small-6 large-9 columns">
         <ul class="inline-list right auth-nav">
@@ -84,12 +84,12 @@
     <!-- Footer -->
     <footer class="row">
       <div class="small-3 columns">
-        <p class="copyright">&copy; Copyright <%= Date.today.year.to_s %> MySite</p>
+        <p class="copyright">&copy; Copyright <%= Date.today.year.to_s %> Chico++</p>
       </div>
       <div class="small-9 columns">
         <ul class="inline-list right">
-          <li><%= link_to 'Contact Us', new_inquiry_path %></li>
-          <li><%= link_to 'About Us', about_path %></li>
+          <li><%= link_to 'Contact', new_inquiry_path %></li>
+          <li><%= link_to 'About', about_path %></li>
           <li><%= link_to 'Privacy', privacy_path %></li>
           <li><%= link_to 'Terms', terms_path %></li>
         </ul>
