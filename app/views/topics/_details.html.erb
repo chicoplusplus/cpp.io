@@ -1,0 +1,19 @@
+<div class="topic">
+  <div class="row">
+    <div class="small-1 columns">
+      <p><%= topic.num_votes %></p>
+    </div>
+    <div class="small-7 large-9 columns">
+      <h4><%= link_to topic.name, topic_path(topic) %></h4>
+      <%= markdown topic.description %>
+    </div>
+    <div class="small-4 large-2 columns">
+      <% if topic.user.avatar? %>
+        <%= image_tag topic.user.avatar.thumb.url %>
+      <% else %>
+        <p>Proposed by <%= topic.user.full_name %></p>
+      <% end %>
+    </div>
+  </div>
+
+</div>

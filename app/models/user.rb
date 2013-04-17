@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
   include RoleModel
   roles :admin
 
+  # Relationships
+  has_many :topics
+
   # Devise authentication
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, 
          :trackable, :validatable, :confirmable, :lockable, :timeoutable

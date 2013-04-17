@@ -1,1 +1,11 @@
-<%= render :partial => 'blurb' %>
+<div class="row">
+  <div class="small-4 large-2 columns">
+    <ul class="side-nav">
+      <li><%= link_to "Vote on topics", topics_path %></li>
+    </ul>
+  </div>
+  <div class="small-8 large-10 columns">
+    <h3 class="subheader">Chico++</h3>
+    <%= render :partial => 'blurb' %>
+  </div>
+</div>

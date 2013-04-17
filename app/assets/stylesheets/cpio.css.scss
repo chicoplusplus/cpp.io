@@ -1,0 +1,19 @@
+a {
+  &:hover {
+    border-bottom: 1px dotted $primary-color;
+  }
+}
+
+h2 .button {
+  font-size: 0.4em;
+}
+
+textarea {
+  height: 10em;
+}
+
+div.topic {
+  @include panel;
+  @include radius(6px);
+  background-color: #fafafa;
+}

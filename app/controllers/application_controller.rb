@@ -48,7 +48,6 @@ class ApplicationController < ActionController::Base
 
     # Helper to get permitted params
     def permitted_params
-      return nil unless defined?(PermittedParams)
       @permitted_params ||= PermittedParams.new(params, current_user)
     end
     helper_method :permitted_params

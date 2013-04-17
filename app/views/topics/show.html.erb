@@ -1,0 +1,9 @@
+<p><%= link_to raw('&laquo; Back to topics'), topics_path %></p>
+<%= render :partial => 'details', :locals => {:topic => @topic} %>
+
+<% if can?(:update, @topic) %> 
+<p>
+  <%= link_to 'Edit', edit_topic_path(@topic), :class => 'button small' %>
+  <span class="cancel-link">or <%= link_to 'cancel', topics_path %></span>
+</p>
+<% end %>

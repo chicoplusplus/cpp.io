@@ -40,8 +40,8 @@
 
     <!-- Logo & Top Nav -->
     <div class="row">
-      <div class="small-6 large-3 columns">
-        <h1><%= link_to image_tag('http://placehold.it/250x75&text=Chico++'), root_path %></h1>
+      <div class="small-6 large-3 columns logo">
+        <h2><%= link_to 'Chico++', root_path %></h2>
       </div>
       <div class="small-6 large-9 columns">
         <ul class="inline-list right auth-nav">
@@ -83,11 +83,8 @@
 
     <!-- Footer -->
     <footer class="row">
-      <div class="small-3 columns">
-        <p class="copyright">&copy; Copyright <%= Date.today.year.to_s %> Chico++</p>
-      </div>
-      <div class="small-9 columns">
-        <ul class="inline-list right">
+      <div class="small-12 columns">
+        <ul class="inline-list">
           <li><%= link_to 'Contact', new_inquiry_path %></li>
           <li><%= link_to 'About', about_path %></li>
           <li><%= link_to 'Privacy', privacy_path %></li>

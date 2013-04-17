@@ -1,0 +1,10 @@
+<h2>Meeting Topics <%= link_to('Propose New Topic', new_topic_path, :class => 'button right') if can?(:create, Topic) %></h2>
+
+
+<% if @topics.size > 0 %>
+  <% @topics.each do |topic| %>
+    <%= render :partial => 'details', :locals => {:topic => topic} %>
+  <% end %>
+<% else %>
+  <p>No topics found. <%= link_to 'Propose one!', new_topic_path %></p>
+<% end %>
