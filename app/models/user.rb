@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   # Relationships
   has_many :topics
+  has_many :votes
 
   # Devise authentication
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, 

@@ -5,7 +5,7 @@ class TopicsController < ApplicationController
   # GET /topics
   # GET /topics.json
   def index
-    @topics = Topic.all
+    @topics = Topic.order('num_votes desc, created_at desc').all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -82,6 +82,34 @@ class TopicsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to topics_url }
       format.json { head :no_content }
+    end
+  end
+
+  # POST /topics/1/vote
+  def vote
+    # Lookup topic (and vote, if it exists)
+    @topic = Topic.find(params[:id])
+    @vote = Vote.find_by_topic_id_and_user_id(@topic.id, current_user.id)
+    value = params[:direction] == 'up' ? 1 : -1
+
+    # Create/update vote
+    if @vote
+      @vote.value = value
+      @vote.save!
+    else
+      @vote = Vote.new
+      @vote.user = current_user
+      @vote.topic = @topic
+      @vote.value = value
+      @vote.save!
+    end
+
+    # Refresh vote count
+    @topic.reload
+
+    # Respond with some js to update page
+    respond_to do |format|
+      format.js
     end
   end
 end

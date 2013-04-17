@@ -126,6 +126,9 @@ $(document).ready(function () {
   // Add fancybox hook
   $("a.th, .fancybox").fancybox();
 
+  // Add text expander hook
+  $("div.expander").expander({slicePoint: 300});
+
   // Init foundation js
   $(document).foundation();
 });

@@ -3,7 +3,11 @@ Chicoplusplus::Application.routes.draw do
   devise_for :users, :path => 'account', :controllers => {:registrations => 'registrations'}
 
   resources :inquiries, :only => [:new, :create]
-  resources :topics
+  resources :topics do
+    member do
+      match 'vote/:direction' => 'topics#vote', :as => 'vote'
+    end
+  end
 
   match 'privacy' => 'home#privacy'
   match 'terms' => 'home#terms'

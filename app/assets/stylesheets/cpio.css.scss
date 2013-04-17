@@ -16,4 +16,16 @@ div.topic {
   @include panel;
   @include radius(6px);
   background-color: #fafafa;
+
+  div.vote {
+    p {
+      margin: 0;
+    }
+    i.icon-sort-up, i.icon-sort-down {
+      font-size: 32px;
+    }
+    a:hover {
+      border: none;
+    }
+  }
 }

@@ -1,13 +1,17 @@
 <div class="topic">
   <div class="row">
-    <div class="small-1 columns">
-      <p><%= topic.num_votes %></p>
+    <div class="small-1 large-1 columns vote">
+      <p><%= link_to raw('<i class="icon-sort-up"></i>'), vote_topic_path(topic, :direction => 'up'), :remote => true %></p>
+      <p id="num_votes_<%= topic.id %>"><%= topic.num_votes %></p>
+      <p><%= link_to raw('<i class="icon-sort-down"></i>'), vote_topic_path(topic, :direction => 'down'), :remote => true %></p>
     </div>
-    <div class="small-7 large-9 columns">
+    <div class="small-8 large-9 columns">
       <h4><%= link_to topic.name, topic_path(topic) %></h4>
-      <%= markdown topic.description %>
+      <div class="expander">
+        <%= markdown topic.description %>
+      </div>
     </div>
-    <div class="small-4 large-2 columns">
+    <div class="small-3 large-2 columns">
       <% if topic.user.avatar? %>
         <%= image_tag topic.user.avatar.thumb.url %>
       <% else %>
