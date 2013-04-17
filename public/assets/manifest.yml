@@ -37,8 +37,8 @@ application.js: application-b6a1647a04e39917764a053be986f07d.js
 application/index.js: application-b6a1647a04e39917764a053be986f07d.js
 active_admin.css: active_admin-8a748bff9d518289018a5fa7761a98da.css
 active_admin/index.css: active_admin-8a748bff9d518289018a5fa7761a98da.css
-application.css: application-cc218c33d46d28c84c04b370d033a363.css
-application/index.css: application-cc218c33d46d28c84c04b370d033a363.css
+application.css: application-24e5d954af45c5444a8e81db795f89b9.css
+application/index.css: application-24e5d954af45c5444a8e81db795f89b9.css
 fancybox_loading.gif: fancybox_loading-5e878dc3d52fae0c9f3f0d6745837e68.gif
 fancybox_loading/index.gif: fancybox_loading-5e878dc3d52fae0c9f3f0d6745837e68.gif
 fancybox_overlay.png: fancybox_overlay-dca142952381a915f6dc4181bc16ad41.png
