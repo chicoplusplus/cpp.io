@@ -2,7 +2,7 @@
   <div class="row">
     <div class="small-1 large-1 columns vote">
       <p><%= link_to raw('<i class="icon-sort-up"></i>'), vote_topic_path(topic, :direction => 'up'), :remote => true %></p>
-      <p id="num_votes_<%= topic.id %>"><%= topic.num_votes %></p>
+      <p class="vote_count" id="num_votes_<%= topic.id %>"><%= topic.num_votes %></p>
       <p><%= link_to raw('<i class="icon-sort-down"></i>'), vote_topic_path(topic, :direction => 'down'), :remote => true %></p>
     </div>
     <div class="small-8 large-9 columns">

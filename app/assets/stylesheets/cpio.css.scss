@@ -20,6 +20,11 @@ div.topic {
   div.vote {
     p {
       margin: 0;
+      text-align: center;
+    }
+    p.vote_count {
+      font-weight: bold;
+      font-size: 1.3em;
     }
     i.icon-sort-up, i.icon-sort-down {
       font-size: 32px;
