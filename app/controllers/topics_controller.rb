@@ -1,7 +1,6 @@
 class TopicsController < ApplicationController
   # Cancan authorization
-  skip_authorization_check :only => [:vote]
-  authorize_resource
+  authorize_resource :except => [:vote]
 
   # GET /topics
   # GET /topics.json
