@@ -7,7 +7,7 @@
   </div>
 
   <div class="actions">
-    <% if can?(:destroy, @topic) %> 
+    <% if @topic.persisted? && can?(:destroy, @topic) %> 
       <%= link_to 'Delete Topic', @topic, :title => 'Delete', :class => 'right alert tiny button', :method => :delete, :data => { :confirm => 'Are you sure?' } %>
     <% end %>
     <%= f.submit 'Save Changes', :class => 'button' %> <span class="cancel-link">or <%= link_to 'cancel', @topic.persisted? ? @topic : topics_path %></span>

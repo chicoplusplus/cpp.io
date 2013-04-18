@@ -10,6 +10,9 @@ class Ability
       can :manage, :all
     else
       can :read, :all
+      can :create, Topic
+      can :vote, Topic
+      can :manage, Topic, :user_id => user.id
     end
   end
 end
